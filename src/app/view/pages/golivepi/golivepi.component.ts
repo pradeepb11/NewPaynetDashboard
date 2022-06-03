@@ -15,7 +15,7 @@ import flatpickr from 'flatpickr'
 export class GolivepiComponent implements OnInit {
 
   validationpersonalDetails1: FormGroup;
-  validationForm2: FormGroup;
+  validationpersonalDetails2: FormGroup;
   validationForm3: FormGroup;
   validationForm4: FormGroup;
 
@@ -63,20 +63,37 @@ export class GolivepiComponent implements OnInit {
       /**
        * formw value validation
        */
-      this.validationForm2 = this.fb.group({
-        email : ['', [Validators.required, Validators.email]],
-        mobileNumber : ['', Validators.required],
-        password : ['', Validators.required]
+      this.validationpersonalDetails2 = this.fb.group({
+        storename : ['', ],
+        address1 : ['', ],
+        address2 : ['', ],
+        address3 : ['', ],
+        webpage : ['', ],
+        storelogo : ['', ],
+        customerservicecontactnumber : ['', ],
+        chargebackcontactnumber : ['', ],
+
       });
+//       [Validators.required, Validators.email]
+//       Validators.required
+// Validators.required
+// Validators.required
+// Validators.required
+// Validators.required
+// Validators.required
+// Validators.required
 
         /**
        * formw value validation
        */
          this.validationForm3 = this.fb.group({
-          email : ['', [Validators.required, Validators.email]],
-          mobileNumber : ['', Validators.required],
-          password : ['', Validators.required]
+          email : ['', ],
+          mobileNumber : ['',],
+          password : ['',]
         });
+        // [Validators.required, Validators.email]
+        // Validators.required
+        // Validators.required
 
         /**
        * formw value validation
@@ -107,12 +124,12 @@ export class GolivepiComponent implements OnInit {
    */
    get f() { return this.validationpersonalDetails1.controls; }
 
-
+  
   /**
    * Returns form
    */
   get form2() {
-    return this.validationForm2.controls;
+    return this.validationpersonalDetails2.controls;
   }
 
   /**
@@ -130,8 +147,8 @@ export class GolivepiComponent implements OnInit {
    * Go to next step while form value is valid
    */
   form2Submit() {
-    console.log(this.validationForm2.value);
-    if(this.validationForm2.valid) {
+    console.log(this.validationpersonalDetails2.value);
+    if(this.validationpersonalDetails2.valid) {
       this.wizardForm.goToNextStep();
     }
     this.isForm2Submitted = true;

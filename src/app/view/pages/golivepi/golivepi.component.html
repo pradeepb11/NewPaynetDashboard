@@ -117,24 +117,6 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control datepicker" id="date" formControlName="dateofbirth" placeholder="Date Of Birth" onfocus="(this.type='date')" [ngClass]="{
-                                            'is-invalid': submitted && f['dateofbirth'].errors && f['dateofbirth'].touched,
-                                            'is-valid': f['dateofbirth'].touched && f['dateofbirth'].valid 
-                                            }">
-                                        <div *ngIf="f['dateofbirth'].touched && f['dateofbirth'].invalid" class="invalid-feedback">
-                                            <div *ngIf="f['dateofbirth'].errors?.['required']">
-                                                Please Enter Your Date Of Birth
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
 
 
                                 <div class="row mb-3">
@@ -180,7 +162,7 @@
                 </aw-wizard-step>
 
                 <aw-wizard-step stepTitle="Store Details">
-                    <form (ngSubmit)="form2Submit()" [formGroup]="validationForm2" class="mt-5 border-top-1">
+                    <form (ngSubmit)="form2Submit()" [formGroup]="validationpersonalDetails2" class="mt-5 border-top-1">
 
                         <div class="row">
                             <div class="d-flex justify-content-start mb-3">
@@ -194,29 +176,72 @@
                                 <div class="row mb-3">
                                     <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+                                        <input type="text" class="form-control" id="storename" formControlName="storename" placeholder="Store Name">
                                     </div>
+
+
                                 </div>
+
+                                <div class="row mb-3">
+                                    <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="address1" formControlName="address1" placeholder="Address line1 (Office # , bldg. # or Name, Street Name)">
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row mb-3">
+                                    <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="address2" formControlName="address2" placeholder="Address line2 (City / PO Box)">
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row mb-3">
+                                    <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="address3" formControlName="address3" placeholder="Address Line 3 (Region / State Name, Zip Code)">
+                                    </div>
+
+
+                                </div>
+
+
+
+
                             </div>
                             <div class="col-sm-6">
+                                <div class="row mb-3">
+                                    <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="webpage" formControlName="webpage" placeholder="Web Page (http://google.com)">
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text btn btn-primary" for="inputGroupFile01">Upload Store Logo</label>
+                                        <input type="file" class="form-control" id="inputGroupFile01">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="customerservicecontactnumber" formControlName="customerservicecontactnumber" placeholder="customerservicecontactnumber">
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
 
 
-                        <div class="row mb-3">
-                            <label for="mobileNumber" class="col-sm-3 col-form-label">Mobile</label>
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control" id="mobileNumber" formControlName="mobileNumber" placeholder="Mobile number">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="password" class="col-sm-3 col-form-label">Password</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center mt-2">
+
+                        <div class="d-flex justify-content-start mt-2">
                             <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
                             <button class="btn btn-primary btnDark" type="submit">Continue</button>
                         </div>
