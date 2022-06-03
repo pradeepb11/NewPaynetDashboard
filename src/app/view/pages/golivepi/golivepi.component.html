@@ -1,0 +1,296 @@
+<div class="container">
+
+    <div class="card">
+        <div class="card-header pb-0 mb-0">
+            <h3 class="text-success">Go Live</h3>
+            <hr>
+            <p>
+                Account Activation - <span class="text-primary"> Step 1 of 5</span>
+            </p>
+            <hr>
+        </div>
+        <div class="card-body pt-0 mt-0">
+
+
+            <aw-wizard #wizardForm>
+
+                <aw-wizard-step stepTitle="Personal Details">
+
+                    <form (ngSubmit)="form1Submit()" [formGroup]="validationpersonalDetails1" class="mt-5 border-top-1">
+
+                        <div class="row">
+                            <h5 class="mb-4 text-primary">Enter Your Details</h5>
+                            <div class="col-sm-6">
+                                <div class="row mb-3">
+                                    <!-- <label for="firstName" class="col-sm-3 col-form-label">First name</label> -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First name" [ngClass]="{
+                                            'is-invalid': submitted && f['firstName'].errors && f['firstName'].touched,
+                                            'is-valid': f['firstName'].touched && f['firstName'].valid 
+                                            }">
+                                        <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="invalid-feedback">
+                                            <div *ngIf="f['firstName'].errors?.['required']">
+                                                Please Enter Your First Name!
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <!-- <label for="lastName" class="col-sm-3 col-form-label">Last name</label> -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last name" [ngClass]="{
+                                            'is-invalid': submitted && f['lastName'].errors && f['lastName'].touched,
+                                            'is-valid': f['lastName'].touched && f['lastName'].valid 
+                                            }">
+                                        <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="invalid-feedback">
+                                            <div *ngIf="f['lastName'].errors?.['required']">
+                                                Please Enter Your Last Name!
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <!-- <label for="lastName" class="col-sm-3 col-form-label">Last name</label> -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="email" formControlName="email" placeholder="Email address" [ngClass]="{
+                                            'is-invalid': submitted && f['email'].errors && f['email'].touched,
+                                            'is-valid': f['email'].touched && f['email'].valid 
+                                            }">
+
+                                        <div *ngIf="f['email'].touched && f['email'].invalid" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors?.['required']">
+                                                Please Enter Your Email Address!
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="row mb-3 text-wrap ptext">
+                                    <p>
+                                        Prove your email. This e-mail address will be used as your username.Any changes in this email address will result in changes vin your username as well.
+
+                                    </p>
+
+                                    <p>
+                                        To register for a Paynet Business Merchant Account, only webpage domain email address will be accepted i.e name@yourwebsite.com instead of name@gmail.com
+                                    </p>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-9">
+                                        <input type="text" name="" class="form-control" placeholder="Enter OTP" id="">
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <button class="btn btn-primary w-25">Verify Email</button>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+
+                                <div class="row mb-3">
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control datepicker" id="date" formControlName="dateofbirth" placeholder="Date Of Birth" onfocus="(this.type='date')" [ngClass]="{
+                                            'is-invalid': submitted && f['dateofbirth'].errors && f['dateofbirth'].touched,
+                                            'is-valid': f['dateofbirth'].touched && f['dateofbirth'].valid 
+                                            }">
+                                        <div *ngIf="f['dateofbirth'].touched && f['dateofbirth'].invalid" class="invalid-feedback">
+                                            <div *ngIf="f['dateofbirth'].errors?.['required']">
+                                                Please Enter Your Date Of Birth
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control datepicker" id="date" formControlName="dateofbirth" placeholder="Date Of Birth" onfocus="(this.type='date')" [ngClass]="{
+                                            'is-invalid': submitted && f['dateofbirth'].errors && f['dateofbirth'].touched,
+                                            'is-valid': f['dateofbirth'].touched && f['dateofbirth'].valid 
+                                            }">
+                                        <div *ngIf="f['dateofbirth'].touched && f['dateofbirth'].invalid" class="invalid-feedback">
+                                            <div *ngIf="f['dateofbirth'].errors?.['required']">
+                                                Please Enter Your Date Of Birth
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="row mb-3">
+                                    <!-- <label for="userName" class="col-sm-3 col-form-label">User name</label> -->
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" name="" placeholder="+91" value="+91" id="">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" name="" placeholder="Mobile Number" formControlName="mobilenumber" id="" [ngClass]="{
+                                            'is-invalid': submitted && f['mobilenumber'].errors && f['mobilenumber'].touched,
+                                            'is-valid': f['mobilenumber'].touched && f['mobilenumber'].valid 
+                                            }">
+                                        <div *ngIf="f['mobilenumber'].touched && f['mobilenumber'].invalid" class="invalid-feedback">
+                                            <div *ngIf="f['mobilenumber'].errors?.['required']">
+                                                Please Enter Your Mobile Number
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-9">
+                                        <input type="text" name="" class="form-control" placeholder="Enter OTP" id="">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <button class="btn btn-primary w-25">Verify Phone</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div class="d-flex justify-content-left mt-2">
+                            <button class="btn btn-primary btnDark" type="submit">Continue</button>
+                        </div>
+                    </form>
+                </aw-wizard-step>
+
+                <aw-wizard-step stepTitle="Store Details">
+                    <form (ngSubmit)="form2Submit()" [formGroup]="validationForm2" class="mt-5 border-top-1">
+
+                        <div class="row">
+                            <div class="d-flex justify-content-start mb-3">
+                                <h5 class="mb-4 text-primary me-3">Enter Your Details - Account type</h5>
+                                <select name="" id="" class="form-select w-25">
+                                    <option value="">Individual</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="row mb-3">
+                                    <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label for="mobileNumber" class="col-sm-3 col-form-label">Mobile</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="mobileNumber" formControlName="mobileNumber" placeholder="Mobile number">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="password" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+                            <button class="btn btn-primary btnDark" type="submit">Continue</button>
+                        </div>
+                    </form>
+                </aw-wizard-step>
+
+                <aw-wizard-step stepTitle="Bank Details">
+                    <form (ngSubmit)="form2Submit()" [formGroup]="validationForm3" class="mt-5 border-top-1">
+                        <div class="row mb-3">
+                            <label for="email" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="mobileNumber" class="col-sm-3 col-form-label">Mobile</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="mobileNumber" formControlName="mobileNumber" placeholder="Mobile number">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="password" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+                            <button class="btn btn-primary btnDark" type="submit">Continue</button>
+                        </div>
+                    </form>
+                </aw-wizard-step>
+
+                <aw-wizard-step stepTitle="Questionnaire">
+                    <form (ngSubmit)="form2Submit()" [formGroup]="validationForm4" class="mt-5 border-top-1">
+                        <div class="row mb-3">
+                            <label for="email" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="mobileNumber" class="col-sm-3 col-form-label">Mobile</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="mobileNumber" formControlName="mobileNumber" placeholder="Mobile number">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="password" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+                            <button class="btn btn-primary btnDark" type="submit">Continue</button>
+                        </div>
+                    </form>
+                </aw-wizard-step>
+
+                <aw-wizard-step stepTitle="finish">
+                    <div class="text-center">
+                        <i data-feather="check-circle" appFeatherIcon class="text-success mt-4 mb-2 icon-xxl"></i>
+                        <h3 class="text-muted mb-3">Thank you !</h3>
+                        <p class="w-75 mx-auto mb-4 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut nulla nunc. Maecenas arcu sem, hendrerit a tempor quis, sagittis accumsan tellus. In hac habitasse platea dictumst</p>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+                        <button class="btn btn-success btnDark" type="button" (click)="finishFunction()">Finish</button>
+                    </div>
+                </aw-wizard-step>
+
+            </aw-wizard>
+
+        </div>
+    </div>
+</div>

@@ -177,3 +177,28 @@
 .color-Orange {
     color: #ee8035;
 }
+
+.darkBlue {
+    color: #151e67;
+}
+
+.otp-input {
+    margin-right: 10px;
+    padding: 2px 8px !important;
+}
+
+.fxt-template-layout11 .fxt-form .fxt-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.fxt-template-layout11 .fxt-form .fxt-form-row .fxt-form-col {
+    margin-right: 10px;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.fxt-template-layout11 .fxt-form .fxt-form-row .fxt-form-col:last-child {
+    margin-right: 0;
+}

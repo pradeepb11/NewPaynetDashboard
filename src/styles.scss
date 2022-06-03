@@ -1,11 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
 
+
+/* You can add global styles to this file, and also import other style files */
 
 // Global icon font
 @import "./assets/fonts/feather/style.css";
-
-
 // // 3rd party plugins
 @import "~@mdi/font/css/materialdesignicons.min.css";
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
@@ -26,11 +25,25 @@
 @import '~@swimlane/ngx-datatable/index.css';
 @import '~@swimlane/ngx-datatable/themes/bootstrap.css';
 @import '~@swimlane/ngx-datatable/assets/icons.css';
-
-
 // NobleUI styles for LTR
 @import "./assets/scss/style";
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border-color: red
+}
 
+.invalid-feedback {
+    display: block;
+}
 
+@import '~bs-stepper/dist/css/bs-stepper.min.css';
 // NobleUI styles For RTL
 // @import "./assets/scss/style.rtl.css";
+.form-control {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #999a9b;
+    border-radius: 0;
+}

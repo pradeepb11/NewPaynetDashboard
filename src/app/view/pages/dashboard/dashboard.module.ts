@@ -5,7 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FeahterIconModule } from 'src/app/helper/feather-icon/feather-icon.module';
 import { NgbDropdownModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +22,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     FeahterIconModule,
     NgbDropdownModule,
     NgbDatepickerModule,

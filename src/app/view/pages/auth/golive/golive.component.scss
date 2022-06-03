@@ -55,7 +55,7 @@
         // background-image: url('https://colorlib.com/etc/lf/Login_v12/images/img-01.jpg');
         .wrap_login {
             // width: 390px;
-            width: 350px;
+            width: auto;
             // background: #ffffffe3;
             background: #fff;
             // background: #ffffffb0;
@@ -176,4 +176,8 @@
 
 .color-Orange {
     color: #ee8035;
+}
+
+.darkBlue {
+    color: #151e67;
 }

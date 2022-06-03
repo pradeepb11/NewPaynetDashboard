@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
   // e.preventDefault();
   localStorage.setItem('isLoggedin', 'true');
   if (localStorage.getItem('isLoggedin')) {
-    this.router.navigate(['./dashboard']);
+    this.router.navigate(['/auth/golive']);
   }
  }
 

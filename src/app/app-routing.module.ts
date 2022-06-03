@@ -12,9 +12,11 @@ const routes: Routes = [
     children:[
      
       { path: 'dashboard', loadChildren: () => import('./view/pages/dashboard/dashboard.module').then(m => m.DashboardModule) },
+      { path: 'personalinfo', loadChildren: () => import('./view/pages/golivepi/golivepi.module').then(m => m.GolivepiModule) },
       { path: '', redirectTo: 'auth', pathMatch: 'full' },
     ]
-  }
+  },
+ 
 
    
    

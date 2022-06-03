@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { ReportService } from 'src/app/service/report.service';
 import { DatePipe } from '@angular/common';
-
+import * as ApexCharts from 'apexcharts';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -26,8 +26,8 @@ export class DashboardComponent implements OnInit {
     FailurePayinTxnCount:any;
     FailurePayinTxnAmount: any;
     //
-    payoutLabelDate: any;
-    payoutAmount: any;
+    payoutLabelDate = [];
+    payoutAmount = [];
     chart:any;
 
     /**
@@ -72,9 +72,10 @@ export class DashboardComponent implements OnInit {
     this.currentDate = this.calendar.getToday();
     console.log(this.currentDate)
 
-    this.growthChartOptions = this.getGrowthChartOptions(this.obj);
-    this.ordersChartOptions = this.getOrdersChartOptions(this.obj);
+    // this.growthChartOptions = this.getGrowthChartOptions(this.obj);
+    // this.ordersChartOptions = this.getOrdersChartOptions(this.obj);
     this.customersChartOptions = this.getCustomerseChartOptions(this.obj);
+    // console.log(this.customersChartOptions);
     this.revenueChartOptions = this.getRevenueChartOptions(this.obj);
 
     // Payin Payout Reports
@@ -137,82 +138,51 @@ export class DashboardComponent implements OnInit {
   }
 
   getPayoutReportmonth(){
+    console.log('Working')
     this.reportSerivce.payoutReportThisMonth()
     .subscribe(
       (res) =>{
         console.log(res);
         this.payoutLabelDate = res.data.map((date:any) => this.datePipe.transform(date.Date, 'mediumDate') );
-        this.payoutAmount = res.data.map((date:any) => date.TotalAmount);
-        console.log(this.payoutLabelDate);
-        console.log(this.payoutAmount)
-  
+        this.payoutAmount = res.data.map((amount:any) => amount.TotalAmount);
+        // console.log(this.payoutLabelDate);
+        // console.log(this.payoutAmount);
+         var options = {
+          series: [{
+            name: '',
+            data: this.payoutAmount ,
+          }],
+          chart: {
+            type: "line",
+            height: 60,
+            sparkline: {
+              enabled: !0
+            }
+          },
+          colors: [this.obj.primary],
+          xaxis: {
+            type: 'datetime',
+            categories: this.payoutLabelDate ,
+          },
+          stroke: {
+            width: 2,
+            curve: "smooth"
+          },
+          markers: {
+            size: 0
+          },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+      
+      
       }
     )
   }
 
   
-/**
- * Growth chart options
- */
- getGrowthChartOptions(obj: any) {
-  return {
-    series: [{
-      name: '',
-      data: [41, 45, 44, 46, 52, 54, 43, 74, 82, 82, 89]
-    }],
-    chart: {
-      type: "line",
-      height: 60,
-      sparkline: {
-        enabled: !0
-      }
-    },
-    colors: [obj.primary],
-    xaxis: {
-      type: 'datetime',
-      categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
-    },
-    stroke: {
-      width: 2,
-      curve: "smooth"
-    },
-    markers: {
-      size: 0
-    },
-  }
-};
-
-
-/**
- * Orders chart options
- */
-  getOrdersChartOptions(obj: any) {
-  return {
-    series: [{
-      name: '',
-      data: [36, 77, 52, 90, 74, 35, 55, 23, 47, 10, 63]
-    }],
-    chart: {
-      type: "bar",
-      height: 60,
-      sparkline: {
-        enabled: !0
-      }
-    },
-    colors: [obj.primary],
-    plotOptions: {
-      bar: {
-        borderRadius: 2,
-        columnWidth: "60%"
-      }
-    },
-    xaxis: {
-      type: 'datetime',
-      categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
-    }
-  }
-};
-
 
 /**
  * Customerse chart options
@@ -221,7 +191,7 @@ export class DashboardComponent implements OnInit {
   return {
     series: [{
       name: '',
-      data: (this.payoutAmount )  ,
+      data: this.payoutAmount ,
     }],
     chart: {
       type: "line",
@@ -233,7 +203,7 @@ export class DashboardComponent implements OnInit {
     colors: [obj.primary],
     xaxis: {
       type: 'datetime',
-      categories: (this.payoutLabelDate) ,
+      categories: this.payoutLabelDate ,
     },
     stroke: {
       width: 2,
@@ -482,7 +452,7 @@ export class DashboardComponent implements OnInit {
   }
 };
 
-
+  
 
 
 }
