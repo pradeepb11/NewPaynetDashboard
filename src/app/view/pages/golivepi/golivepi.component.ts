@@ -72,6 +72,11 @@ export class GolivepiComponent implements OnInit {
         storelogo : ['', ],
         customerservicecontactnumber : ['', ],
         chargebackcontactnumber : ['', ],
+        csemailaddress:[''],
+        termandcUrl:[''],
+        productdesc:[''], 
+        chargebackemailadd:['']
+
 
       });
 //       [Validators.required, Validators.email]
@@ -87,9 +92,13 @@ export class GolivepiComponent implements OnInit {
        * formw value validation
        */
          this.validationForm3 = this.fb.group({
-          email : ['', ],
-          mobileNumber : ['',],
-          password : ['',]
+          branchaddress:[''],
+          ibancode:[''],
+          accountholdername:[''],
+          accountnumber:[''],
+          bankstatement:[''],
+
+
         });
         // [Validators.required, Validators.email]
         // Validators.required
@@ -99,8 +108,8 @@ export class GolivepiComponent implements OnInit {
        * formw value validation
        */
          this.validationForm4 = this.fb.group({
-          email : ['', [Validators.required, Validators.email]],
-          mobileNumber : ['', Validators.required],
+          nameofyourbuisness : ['',],
+          yearofyourbuisness : ['', Validators.required],
           password : ['', Validators.required]
         });
   

@@ -22,7 +22,7 @@ export class GoliveComponent implements OnInit {
     window.location.href="https://paynet.co.in/";
   }
   proceedtoDashborad(){
-    this.router.navigate(['./dashboard']);
+    this.router.navigate(['./personalinfo']);
   }
 
 }
