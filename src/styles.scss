@@ -40,7 +40,8 @@ textarea.ng-invalid.ng-touched {
 @import '~bs-stepper/dist/css/bs-stepper.min.css';
 // NobleUI styles For RTL
 // @import "./assets/scss/style.rtl.css";
-.form-control {
+.form-control,
+.form-select {
     border-top: none;
     border-right: none;
     border-left: none;

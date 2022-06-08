@@ -7,7 +7,7 @@
             <p class="mb-3">
                 Account Activation - <span class="text-primary"> Step 1 of 5</span>
             </p>
-           
+
         </div>
         <div class="card-body pt-0 mt-3 border-bottom">
 
@@ -93,8 +93,10 @@
                                 </div>
 
 
-                                <div class="row mb-3">
+                                <div class="mb-3 d-flex justify-content-center align-items-center">
                                     <button class="btn btn-primary w-25">Verify Email</button>
+                                    <span class="ms-4">Resend OTP:</span>
+                                    <div class="otp-countdown" id="timer-countdown">05:00</div>
                                 </div>
 
                             </div>
@@ -167,7 +169,7 @@
                         <div class="row">
                             <div class="d-flex justify-content-start mb-3">
                                 <h5 class="mb-4 text-primary me-3">Enter Your Details - Account type</h5>
-                                <select name="" id="" class="form-select w-25">
+                                <select name="" id="" formControlName="Account_type" class="form-select w-25">
                                     <option value="">Individual</option>
                                 </select>
                             </div>
@@ -176,7 +178,7 @@
                                 <div class="row mb-3">
                                     <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="storename" formControlName="storename" placeholder="Store Name">
+                                        <input type="text" class="form-control" id="storename" formControlName="Store_name" placeholder="Store Name">
                                     </div>
 
 
@@ -212,20 +214,21 @@
                                 <div class="row mb-3">
                                     <div class="col-sm-9">
                                         <div class="input-group mb-3">
-                                            <label class="input-group-text btn btn-primary" for="inputGroupFile01">Upload Address Proof</label>
-                                            <input type="file" class="form-control" id="inputGroupFile01">
+                                            <label class="input-group-text btn btn-primary" for="uploadaddressproof">Upload Address Proof</label>
+                                            <input type="file" class="form-control" id="uploadaddressproof" (change)="changeListener($event)">
+                                            <img src="{{image}}" alt="" width="50">
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
 
-                                    <div class="row mb-3">
-                                        <div class="col-sm-9">
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text btn btn-primary" for="inputGroupFile01">Upload Pan Card</label>
-                                                <input type="file" class="form-control" id="inputGroupFile01">
-                                            </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-9">
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text btn btn-primary" for="uploadpancard">Upload Pan Card</label>
+                                            <input type="file" class="form-control" id="uploadpancard">
                                         </div>
-                                        </div>
+                                    </div>
+                                </div>
 
 
                             </div>
@@ -241,10 +244,10 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-9">
-                                    <div class="input-group mb-3">
-                                        <label class="input-group-text btn btn-primary" for="inputGroupFile01">Upload Store Logo</label>
-                                        <input type="file" class="form-control" id="inputGroupFile01">
-                                    </div>
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text btn btn-primary" for="uploadstorelogo">Upload Store Logo</label>
+                                            <input type="file" class="form-control" id="uploadstorelogo">
+                                        </div>
                                         <p class="text-muted">provide your store logo Max size: 2mb</p>
                                         <p class="text-muted">Accepted formats: JPEG/JPG, PNG, GIF. Reset will be igoreed</p>
                                     </div>
@@ -263,20 +266,20 @@
                                 </div>
 
                             </div>
-                           
+
                             <div class="row mb-3 col-sm-9">
-                               
-                                <div  class="form-check mb-2">
-                                  
-                                    <label  for="checkChecked" class="form-check-label"> The above address will be displayed on the invoices. Check this box if you would like to display a different address on the invoice. </label>
-                                    <input  type="checkbox" id="checkChecked" checked="" class="form-check-input">
-                                   </div>
-                            </div>    
+
+                                <div class="form-check mb-2">
+
+                                    <label for="checkChecked" class="form-check-label"> The above address will be displayed on the invoices. Check this box if you would like to display a different address on the invoice. </label>
+                                    <input type="checkbox" id="checkChecked" checked="" class="form-check-input">
+                                </div>
+                            </div>
 
                         </div>
 
                         <div class="row">
-                            
+
                             <div class="col-sm-6">
                                 <div class="row mb-3">
                                     <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
@@ -307,7 +310,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-9">
-                                    <select name="" id="" class="form-select " >
+                                        <select name="" id="" class="form-select ">
                                         <option value="">Working Time From</option>
                                     </select>
                                     </div>
@@ -321,85 +324,92 @@
                                 <div class="row mb-3">
                                     <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="chargebackemailadd" formControlName="chargebackemailadd" placeholder="Charge-back Email Address" >
+                                        <input type="text" class="form-control" id="chargebackemailadd" formControlName="chargebackemailadd" placeholder="Charge-back Email Address">
                                     </div>
 
 
                                 </div>
 
                                 <div class="row mb-3">
-                                <div class="col-sm-9 d-flex">
-                                    <p class="me-3 justify-content-center align-items-center">Or</p>
-                                    <div class="input-group mb-3">
-                                        <label class="input-group-text btn btn-primary" for="inputGroupFile01">Upload File</label>
-                                        <input type="file" class="form-control" id="inputGroupFile01">
-                                    </div>
-                                    
-                                    </div>
-                                    </div>
+                                    <div class="col-sm-9 d-flex">
+                                        <p class="me-3 justify-content-center align-items-center">Or</p>
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text btn btn-primary" for="uploadfile">Upload File</label>
+                                            <input type="file" class="form-control" id="uploadfile">
+                                        </div>
 
-                                    <div class="row mb-3">
-                                        <div class="col-sm-9">
-                                         
-                                            </div>
-                                            </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-sm-9">
+
+                                    </div>
+                                </div>
 
 
-                                    <div class="row mb-3 mt-5">
-                                        <div class="col-sm-9">
-                                        <select name="" id="" class="form-select " >
+                                <div class="row mb-3 mt-5">
+                                    <div class="col-sm-9">
+                                        <select name="" id="" class="form-select ">
                                             <option value="">Working Time From</option>
                                         </select>
-                                        </div>
                                     </div>
-    
+                                </div>
+
 
                             </div>
 
                         </div>
                         <div>
                             <div class="row">
-                              
+
                                 <div class="mb-4">
                                     <label for="">Working Days</label>
                                     <div class="form-check form-check-inline ms-4">
-                                        <input type="radio" class="form-check-input" name="radioInline" id="radioInline">
+                                        <input type="checkbox" class="form-check-input" name="radioInline" id="radioInline">
                                         <label class="form-check-label" for="radioInline">
                                             Sunday
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="radioInline" id="monday">
+                                        <input type="checkbox" class="form-check-input" name="radioInline" id="monday">
                                         <label class="form-check-label" for="monday">
                                             Monday
                                         </label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="radioInline" id="tuesday">
+                                        <input type="checkbox" class="form-check-input" name="radioInline" id="tuesday">
                                         <label class="form-check-label" for="tuesday">
                                             Tuesday
                                         </label>
                                     </div>
-                                   
+
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="radioInline" id="wednesday">
+                                        <input type="checkbox" class="form-check-input" name="radioInline" id="wednesday">
                                         <label class="form-check-label" for="wednesday">
                                             Wednesday
                                         </label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="radioInline" id="thursday">
+                                        <input type="checkbox" class="form-check-input" name="radioInline" id="thursday">
                                         <label class="form-check-label" for="thursday">
                                             Thursday
                                         </label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="radioInline" id="Friday">
+                                        <input type="checkbox" class="form-check-input" name="radioInline" id="Friday">
                                         <label class="form-check-label" for="Friday">
                                             Friday
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="radioInline" id="Friday">
+                                        <label class="form-check-label" for="Friday">
+                                            Saterday
                                         </label>
                                     </div>
 
@@ -422,145 +432,145 @@
 
                         <div class="d-flex justify-content-start mb-3">
                             <h5 class="mb-4 text-primary me-3">Enter Bank Details </h5>
-                           
+
                         </div>
 
-                        
-                            <div class="row">
+
+                        <div class="row">
                             <div class=" mb-3 col-sm-6">
 
-                           
+
                                 <div class="col-sm-9">
-                                <select name="" id="" class="form-select " >
+                                    <select name="" id="" class="form-select ">
                                     <option value="">Select Bank</option>
                                 </select>
                                 </div>
-                                </div>
-                              
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="branchaddress" formControlName="branchaddress" placeholder="Branch Address">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="ibancode" formControlName="ibancode" placeholder="IBAN Code(AD12 0001 2030 2003 5910 0100)">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="ibancode" formControlName="ibancode" placeholder="IFSC / SWIFT Code (CHASUS33XXX)">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <select name="" id="" class="form-select " >
-                                                    <option value="">Merchant Payment Currency</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="accountholdername" formControlName="accountholdername" placeholder="Account holder name">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="accountnumber" formControlName="accountnumber" placeholder="Account Number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                               
-
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="bankstatement" formControlName="bankstatement" placeholder="Bank Statement / Cancelled CHQ / Passbook">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <div class="input-group mb-3">
-                                                    <label class="input-group-text btn btn-primary" for="inputGroupFile01">Upload </label>
-                                                    <input type="file" class="form-control" id="inputGroupFile01">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="text-muted">Please upload a clear and readable copy of your mentioned Bank Account Statement from the last six month on the bank letter head. </p>
-                                        <p class="text-muted">Max size: 8MB. Accepted formats: JPEG/JPG, PNG, GIF. </p>
-                                    </div>
-                                </div>
-
-                                <div class=" mb-3 col-sm-6">
-                                    <div class="">
-                                        <div class="row mb-3">
-                                            <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
-                                            <div class="col-sm-9">
-                                                <select name="" id="" class="form-select " >
-                                                    <option value="">Select withdrawal setting</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                              
-
-
                             </div>
 
-                          
-                      
-                       
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="branchaddress" formControlName="branchaddress" placeholder="Branch Address">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="ibancode" formControlName="ibancode" placeholder="IBAN Code(AD12 0001 2030 2003 5910 0100)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="ibancode" formControlName="ibancode" placeholder="IFSC / SWIFT Code (CHASUS33XXX)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <select name="" id="" class="form-select ">
+                                                    <option value="">Merchant Payment Currency</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="accountholdername" formControlName="accountholdername" placeholder="Account holder name">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="accountnumber" formControlName="accountnumber" placeholder="Account Number">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
-                        
+
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="bankstatement" formControlName="bankstatement" placeholder="Bank Statement / Cancelled CHQ / Passbook">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text btn btn-primary" for="upload">Upload </label>
+                                                <input type="file" class="form-control" id="upload">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted">Please upload a clear and readable copy of your mentioned Bank Account Statement from the last six month on the bank letter head. </p>
+                                    <p class="text-muted">Max size: 8MB. Accepted formats: JPEG/JPG, PNG, GIF. </p>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3 col-sm-6">
+                                <div class="">
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-sm-3 col-form-label">Email</label> -->
+                                        <div class="col-sm-9">
+                                            <select name="" id="" class="form-select ">
+                                                    <option value="">Select withdrawal setting</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
                         <div class="d-flex justify-content-start mt-2">
                             <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
                             <button class="btn btn-primary btnDark" type="submit">Continue</button>
@@ -573,11 +583,11 @@
 
                         <div class="d-flex justify-content-start mb-3">
                             <h5 class="mb-4 text-primary me-3">Questionnaire </h5>
-                            
+
                         </div>
 
                         <div class="row">
-                            
+
                             <div class=" mb-3 col-sm-6">
                                 <div class="">
                                     <div class="row mb-3">
@@ -666,33 +676,33 @@
                             </div>
 
                             <div class=" mb-3 col-sm-6">
-                               <p>Any instance of Account compromise or Fraud the merchant may have experienced</p>
-                               <div class="mb-4 mt-3 ">
-                            
-                                <div class="form-check form-check-inline ms-4">
-                                    <input type="radio" class="form-check-input" name="radioInline" id="yes">
-                                    <label class="form-check-label" for="yes">
+                                <p>Any instance of Account compromise or Fraud the merchant may have experienced</p>
+                                <div class="mb-4 mt-3 ">
+
+                                    <div class="form-check form-check-inline ms-4">
+                                        <input type="radio" class="form-check-input" name="radioInline" id="yes">
+                                        <label class="form-check-label" for="yes">
                                         Yes
                                     </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" class="form-check-input" name="radioInline" id="no">
-                                    <label class="form-check-label" for="no">
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" name="radioInline" id="no">
+                                        <label class="form-check-label" for="no">
                                         No
                                     </label>
+                                    </div>
+
+
+
+
                                 </div>
-
-                               
-
-
-                            </div>
                             </div>
 
 
                         </div>
 
-                       
-                        
+
+
                         <div class="d-flex justify-content-start mt-2">
                             <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
                             <button class="btn btn-primary btnDark" type="submit">Continue</button>
