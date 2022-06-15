@@ -20,6 +20,7 @@ export class GolivepiComponent implements OnInit, AfterViewInit {
   validationpersonalDetails2: FormGroup;
   validationForm3: FormGroup;
   validationForm4: FormGroup;
+  validationFormkyc: FormGroup;
 
   isForm1Submitted: Boolean;
   isForm2Submitted: Boolean;
@@ -114,6 +115,14 @@ export class GolivepiComponent implements OnInit, AfterViewInit {
         // Validators.required
         // Validators.required
 
+        this.validationFormkyc = this.fb.group({
+          pancardnumber:[''],
+          pancardholdername:[''],
+          adharcardnumber:[''],
+          uploadadhar:[''],
+          uploadpancard:['']
+        })
+
         /**
        * formw value validation
        */
@@ -197,6 +206,14 @@ export class GolivepiComponent implements OnInit, AfterViewInit {
    * Go to next step while form value is valid
    */
   form2Submit() {
+    console.log(this.validationpersonalDetails2.value);
+    if(this.validationpersonalDetails2.valid) {
+      this.wizardForm.goToNextStep();
+    }
+    this.isForm2Submitted = true;
+  }
+
+  formkycSubmit(){
     console.log(this.validationpersonalDetails2.value);
     if(this.validationpersonalDetails2.valid) {
       this.wizardForm.goToNextStep();

@@ -253,4 +253,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     }
   };
 
+ 
+
 }

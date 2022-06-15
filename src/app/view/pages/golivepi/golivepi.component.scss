@@ -20,3 +20,15 @@
     color: #fff;
     width: auto;
 }
+
+.form-control[readonly] {
+    background-color: transparent;
+}
+
+.Questionnaire_form {
+    &::placeholder {
+        color: #275c9a;
+        height: 50px;
+        line-height: 50px;
+    }
+}

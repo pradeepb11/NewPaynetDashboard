@@ -10,10 +10,7 @@ export const MENU: MenuItem[] = [
     icon: 'home',
     link: '/dashboard'
   },
-  {
-    label:'Invoice',
-    isTitle: true,
-  },
+
   // {
   //   label: 'Invoice',
   //   icon: 'slack',
@@ -33,7 +30,7 @@ export const MENU: MenuItem[] = [
   //   ]
   // },
   {
-    label:'golive personal Information',
+    label:'Go Live',
     icon: 'home',
     link: '/personalinfo'
   }

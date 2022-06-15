@@ -1,33 +1,47 @@
+<div style="position: relative;">
+    <div class="highlight-test-mode-container">
+        <div class="horizontal-line"></div>
+        <div class="content">
+            <div class="trapezoid d-flex text-center"><i class="mdi mdi-alert-circle text-warning me-2"></i> YOU'RE IN DEMO MODE
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="main-wrapper">
+
+
 
     <!-- partial:sidebar -->
     <app-sidebar></app-sidebar>
     <!-- partial -->
-  
+
     <div class="page-wrapper">
-  
-      <!-- partial:navbar -->
-      <app-navbar></app-navbar>
-      <!-- partial -->
-  
-      <div class="page-content">
-  
-        <!-- Spinner for lazyload modules -->
-        <div *ngIf="isLoading" class="spinner-wrapper">
-          <div class="spinner">Loading...</div>
+
+        <!-- partial:navbar -->
+        <app-navbar></app-navbar>
+        <!-- partial -->
+
+        <div class="page-content">
+
+            <!-- Spinner for lazyload modules -->
+            <div *ngIf="isLoading" class="spinner-wrapper">
+                <div class="spinner">Loading...</div>
+            </div>
+
+            <div contentAnimate *ngIf="!isLoading">
+                <router-outlet></router-outlet>
+            </div>
+
         </div>
-  
-        <div contentAnimate *ngIf="!isLoading">
-          <router-outlet></router-outlet>
-        </div>
-  
-      </div>
-  
-      <!-- partial:footer -->
-      <app-footer></app-footer>
-      <!-- partial -->
-  
+
+        <!-- partial:footer -->
+        <app-footer></app-footer>
+        <!-- partial -->
+
     </div>
-  
-  
-  </div>
+
+
+</div>

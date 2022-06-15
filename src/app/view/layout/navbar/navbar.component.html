@@ -1,60 +1,71 @@
 <nav class="navbar">
     <a href="" class="sidebar-toggler" (click)="toggleSidebar($event)">
-      <i class="feather icon-menu"></i>
+        <i class="feather icon-menu"></i>
     </a>
     <div class="navbar-content">
-      <form class="search-form">
-        <div class="input-group">
-          <div class="input-group-text">
-            <i class="feather icon-search"></i>
-          </div>
-          <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
-        </div>
-      </form>
-      <ul class="navbar-nav">
-      
-        
-        <li class="nav-item nav-messages" ngbDropdown>
-          <a class="nav-link" ngbDropdownToggle id="messageDropdown">
-            <i class="link-icon feather icon-mail"></i>
-          </a>
-          <div ngbDropdownMenu class="px-0" aria-labelledby="messageDropdown">
-            <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
-              <p>2 New Messages</p>
-              <a href="" (click)="false" class="text-muted">Clear all</a>
-            </div>
-            <div class="p-1">
-              <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
-                <div class="me-3">
-                  <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="user">
+        <form class="search-form">
+            <div class="input-group">
+                <div class="input-group-text">
+                    <i class="feather icon-search"></i>
                 </div>
-                <div class="d-flex justify-content-between flex-grow-1">
-                  <div class="me-4">
-                    <p>Pradeep Bhosle</p>
-                    <p class="tx-12 text-muted">Project status</p>
-                  </div>
-                  <p class="tx-12 text-muted">2 min ago</p>
-                </div>	
-              </a>
-              <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
-                <div class="me-3">
-                  <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="user">
+                <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+            </div>
+        </form>
+        <ul class="navbar-nav">
+
+            <li class="nav-item" ngbDropdown>
+                <a class="nav-link" ngbDropdownToggle id="languageDropdown" role="button">
+                    <i class="mdi mdi-alert-circle text-warning"></i>
+                    <span class="fw-bold ms-1 me-1 d-none d-md-inline-block">Demo Mode</span>
+                </a>
+                <div ngbDropdownMenu aria-labelledby="languageDropdown">
+                    <a ngbDropdownItem class="py-2"> <span class="ms-1">   <i class="mdi mdi-alert-circle text-warning"></i> Demo Mode </span></a>
+                    <a ngbDropdownItem class="py-2"> <span class="ms-1"> <i class="mdi mdi-check-circle text-success"></i>  Live Mode </span></a>
+
                 </div>
-                <div class="d-flex justify-content-between flex-grow-1">
-                  <div class="me-4">
-                    <p>Pradeep Bhosle</p>
-                    <p class="tx-12 text-muted">Project status</p>
-                  </div>
-                  <p class="tx-12 text-muted">2 min ago</p>
-                </div>	
-              </a>
-            </div>
-            <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
-              <a href="" (click)="false">View all</a>
-            </div>
-          </div>
-        </li>
-        <!-- <li class="nav-item nav-notifications" ngbDropdown>
+            </li>
+
+            <li class="nav-item nav-messages" ngbDropdown>
+                <a class="nav-link" ngbDropdownToggle id="messageDropdown">
+                    <i class="link-icon feather icon-mail"></i>
+                </a>
+                <div ngbDropdownMenu class="px-0" aria-labelledby="messageDropdown">
+                    <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+                        <p>2 New Messages</p>
+                        <a href="" (click)="false" class="text-muted">Clear all</a>
+                    </div>
+                    <div class="p-1">
+                        <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
+                            <div class="me-3">
+                                <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="user">
+                            </div>
+                            <div class="d-flex justify-content-between flex-grow-1">
+                                <div class="me-4">
+                                    <p>Pradeep Bhosle</p>
+                                    <p class="tx-12 text-muted">Project status</p>
+                                </div>
+                                <p class="tx-12 text-muted">2 min ago</p>
+                            </div>
+                        </a>
+                        <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
+                            <div class="me-3">
+                                <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="user">
+                            </div>
+                            <div class="d-flex justify-content-between flex-grow-1">
+                                <div class="me-4">
+                                    <p>Pradeep Bhosle</p>
+                                    <p class="tx-12 text-muted">Project status</p>
+                                </div>
+                                <p class="tx-12 text-muted">2 min ago</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+                        <a href="" (click)="false">View all</a>
+                    </div>
+                </div>
+            </li>
+            <!-- <li class="nav-item nav-notifications" ngbDropdown>
           <a class="nav-link" ngbDropdownToggle id="notificationDropdown">
             <i class="link-icon feather icon-bell"></i>
             <div class="indicator">
@@ -118,22 +129,18 @@
             </div>
           </div>
         </li> -->
-        <li class="nav-item nav-profile" ngbDropdown>
-          <a class="nav-link" ngbDropdownToggle id="profileDropdown">
-            <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
-          </a>
-          <div ngbDropdownMenu class="px-0" aria-labelledby="profileDropdown">
-            <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
-              <div class="mb-3">
-                <img class="wd-80 ht-80 rounded-circle" src="https://via.placeholder.com/80x80" alt="">
-              </div>
-              <div class="text-center">
-                <p class="tx-16 fw-bolder">Pradeep Bhosle</p>
-                <p class="tx-12 text-muted">pradeep.b@paynet.co.in</p>
-              </div>
-            </div>
-            <ul class="list-unstyled p-1">
-              <!-- <li class="dropdown-item py-2">
+            <li class="nav-item nav-profile" ngbDropdown>
+                <a class="nav-link" ngbDropdownToggle id="profileDropdown">
+                    <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
+                </a>
+                <div ngbDropdownMenu class="px-0" aria-labelledby="profileDropdown">
+                    <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                        <span class="tx-16 fw-bolder">Pradeep Bhosle</span>
+                        <span class="tx-12 text-muted">pradeep.b@paynet.co.in</span>
+
+                    </div>
+                    <ul class="list-unstyled p-1">
+                        <!-- <li class="dropdown-item py-2">
                 <a routerLink="/general/profile" class="d-flex text-body ms-0">
                   <i class="feather icon-user me-2 icon-md"></i>
                   <span>Profile</span>
@@ -151,15 +158,15 @@
                   <span>Switch User</span>
                 </a>
               </li> -->
-              <li class="dropdown-item py-2">
-                <a href="" (click)="onLogout($event)" class="d-flex text-body ms-0">
-                  <i class="feather icon-log-out me-2 icon-md"></i>
-                  <span>Log Out</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
+                        <li class="dropdown-item py-2">
+                            <a href="" (click)="onLogout($event)" class="d-flex text-body ms-0">
+                                <i class="feather icon-log-out me-2 icon-md"></i>
+                                <span>Log Out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
     </div>
-  </nav>
+</nav>
